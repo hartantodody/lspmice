@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { CTAButton } from "@/app/_components/cta-button";
 import { cn } from "@/app/_lib/cn";
@@ -21,16 +21,43 @@ export function HomeNewsShowcase({
   ctaLabel,
 }: HomeNewsShowcaseProps) {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [prevIndex, setPrevIndex] = useState<number | null>(null);
+  const [animating, setAnimating] = useState(false);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
   const activePost = featuredPosts[activeIndex] ?? featuredPosts[0];
 
-  if (!activePost) {
-    return null;
-  }
+  const handleSelect = (index: number) => {
+    if (index === activeIndex || animating) return;
+    setPrevIndex(activeIndex);
+    setAnimating(true);
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    timeoutRef.current = setTimeout(() => {
+      setActiveIndex(index);
+      setAnimating(false);
+      setPrevIndex(null);
+    }, 260);
+  };
+
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
+  }, []);
+
+  if (!activePost) return null;
 
   return (
     <div className="mt-10 grid gap-6 lg:grid-cols-[0.82fr_1.18fr]">
+      {/* Featured / Pengumuman card */}
       <article className="relative flex flex-col overflow-hidden rounded-[32px] border border-[var(--brand-primary)]/12 bg-[linear-gradient(135deg,#00253A_0%,#003B5C_100%)] p-6 text-white shadow-[0_24px_72px_rgba(0,37,58,0.2)] sm:p-8">
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-[140px] overflow-hidden rounded-t-[32px]">
+        {/* Background image with transition */}
+        <div
+          className={cn(
+            "pointer-events-none absolute inset-x-0 top-0 h-[140px] overflow-hidden rounded-t-[32px] transition-opacity duration-300",
+            animating ? "opacity-0" : "opacity-100"
+          )}
+        >
           <Image
             src={activePost.image}
             alt={activePost.title}
@@ -42,7 +69,15 @@ export function HomeNewsShowcase({
           <div className="absolute inset-0 bg-[linear-gradient(0deg,#00253A_10%,transparent_100%)]" />
         </div>
 
-        <div className="relative z-10 flex h-full flex-col max-w-[34rem]">
+        {/* Content with fade+slide transition */}
+        <div
+          className={cn(
+            "relative z-10 flex h-full flex-col max-w-[34rem] transition-all duration-300",
+            animating
+              ? "opacity-0 translate-y-3"
+              : "opacity-100 translate-y-0"
+          )}
+        >
           <p className="text-[11px] font-semibold uppercase tracking-[0.34em] text-[var(--brand-accent-soft)]">
             {activePost.category}
           </p>
@@ -74,7 +109,7 @@ export function HomeNewsShowcase({
                       ? "w-9 bg-[var(--brand-accent)]"
                       : "w-2 bg-white/32 hover:bg-white/52"
                   )}
-                  onClick={() => setActiveIndex(index)}
+                  onClick={() => handleSelect(index)}
                 />
               ))}
             </div>
@@ -82,15 +117,18 @@ export function HomeNewsShowcase({
         </div>
       </article>
 
+      {/* Archive card */}
       <article className="rounded-[32px] border border-[var(--border)] bg-white p-6 shadow-[0_24px_64px_rgba(15,23,42,0.06)] sm:p-8">
         <h3 className="text-3xl font-semibold tracking-[-0.03em] text-[var(--brand-primary-dark)]">
           Arsip Berita
         </h3>
         <div className="mt-6 space-y-4">
-          {archivePosts.map((post) => (
+          {archivePosts.map((post, idx) => (
             <Link
               key={post.slug}
               href={`/berita#${post.slug}`}
+              data-reveal
+              style={{ "--reveal-delay": `${idx * 80}ms` } as React.CSSProperties}
               className="group flex items-start gap-4 rounded-[24px] border border-[var(--border)] bg-[var(--surface-muted)]/52 p-4 transition-all duration-300 hover:border-[var(--brand-accent)]/20 hover:bg-white hover:shadow-[0_18px_44px_rgba(15,23,42,0.06)]"
             >
               <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-[18px] bg-[var(--brand-primary-soft)]">
