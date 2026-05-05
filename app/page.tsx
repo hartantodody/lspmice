@@ -132,10 +132,10 @@ export default function Home() {
             <RevealSection
               id='skema'
               variant='right'
-              className='relative overflow-hidden bg-slate-50 px-4 pb-14 pt-20 sm:px-6 sm:pb-20 sm:pt-24 lg:px-8 lg:pt-28'
+              className='relative overflow-hidden bg-[#00152A] px-4 pb-14 pt-20 sm:px-6 sm:pb-20 sm:pt-24 lg:px-8 lg:pt-28'
             >
               {/* Antigravity Cursor Particles Background */}
-              <ParticleCanvas className="opacity-[0.85] mix-blend-multiply" />
+              <ParticleCanvas className="opacity-90" />
 
               <div className='relative z-10 mx-auto max-w-[1320px]'>
                 <SectionHeader
@@ -143,6 +143,7 @@ export default function Home() {
                   title={homePageContent.certification.title}
                   accent={homePageContent.certification.accent}
                   description={homePageContent.certification.description}
+                  className='[&_p:first-child]:text-[var(--brand-accent-soft)] [&_h2]:text-white [&_p:last-child]:text-white/60 [&_p.text-balance]:text-blue-200'
                 />
 
                 <div className='mt-10 grid gap-5 lg:grid-cols-2 xl:grid-cols-3'>
@@ -151,13 +152,14 @@ export default function Home() {
                       key={scheme.slug}
                       scheme={scheme}
                       variant='featured'
+                      theme='dark'
                       delay={`${index * 80 + 160}ms`}
                     />
                   ))}
                 </div>
 
                 <div className='mt-8'>
-                  <CTAButton href='/skema-sertifikasi' variant='secondary'>
+                  <CTAButton href='/skema-sertifikasi' className='!border-white/20 !bg-white/10 !text-white hover:!bg-white/20 backdrop-blur-sm'>
                     {homePageContent.certification.ctaLabel}
                   </CTAButton>
                 </div>
