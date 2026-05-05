@@ -9,6 +9,7 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/app/_lib/cn";
 import { registrationWhatsappHref } from "@/src/data/contact";
 import { siteNavigation } from "@/src/data/site";
+import { certificationSchemes } from "@/src/data/certification-schemes";
 
 type SiteHeaderProps = {
   overlay?: boolean;
@@ -49,18 +50,18 @@ export function SiteHeader({ overlay = false }: SiteHeaderProps) {
 
   const homeOverlay = overlay && pathname === "/" && !isElevated;
   const surfaceClass = cn(
-    "text-[var(--brand-primary-dark)] shadow-[0_18px_52px_rgba(15,23,42,0.12)] backdrop-blur-2xl",
+    "shadow-[0_18px_52px_rgba(15,23,42,0.12)] backdrop-blur-2xl transition-all duration-500 ease-[var(--ease-premium)]",
     homeOverlay
-      ? "border-white/14 bg-[rgba(11,37,69,0.38)] text-white"
-      : "border-[var(--border)] bg-white/94"
+      ? "border-white/20 bg-[rgba(0,37,58,0.45)] text-white"
+      : "border-white/40 bg-white/70 text-[var(--brand-primary-dark)]"
   );
 
   const navSurfaceClass = cn(
-    "shadow-[0_18px_52px_rgba(15,23,42,0.08)] backdrop-blur-2xl",
+    "shadow-[0_18px_52px_rgba(15,23,42,0.08)] backdrop-blur-2xl transition-all duration-500 ease-[var(--ease-premium)]",
     homeOverlay
-      ? "border-white/14 bg-[rgba(11,37,69,0.28)]"
-      : "border-[var(--border)] bg-white/92",
-    isElevated && "bg-white/96"
+      ? "border-white/20 bg-[rgba(0,37,58,0.35)]"
+      : "border-white/50 bg-white/60",
+    isElevated && !homeOverlay && "bg-white/80"
   );
 
   return (
@@ -79,7 +80,10 @@ export function SiteHeader({ overlay = false }: SiteHeaderProps) {
             width={664}
             height={175}
             priority
-            className="h-8 w-auto max-w-[10.75rem] min-w-0 object-contain sm:h-9 sm:max-w-[12.5rem] lg:h-10 lg:max-w-none"
+            className={cn(
+              "h-8 w-auto max-w-[10.75rem] min-w-0 object-contain transition-all duration-500 sm:h-9 sm:max-w-[12.5rem] lg:h-10 lg:max-w-none",
+              homeOverlay && "brightness-0 invert"
+            )}
           />
         </Link>
 
@@ -93,24 +97,64 @@ export function SiteHeader({ overlay = false }: SiteHeaderProps) {
             {siteNavigation.map((item) => {
               const isActive = isActivePath(pathname, item);
 
-              return (
+              const isDropdown = item.label === "Skema Sertifikasi";
+
+              const LinkElement = (
                 <Link
-                  key={item.href}
                   href={item.href}
                   className={cn(
-                    "rounded-full px-4 py-2 text-sm font-medium transition-all duration-300",
+                    "rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 inline-flex items-center gap-1.5",
                     isActive
                       ? homeOverlay
-                        ? "bg-[rgba(193,18,31,0.2)] text-white ring-1 ring-white/14"
+                        ? "bg-[rgba(200,16,46,0.3)] text-white ring-1 ring-white/20"
                         : "bg-[var(--brand-accent-soft)] text-[var(--brand-accent-dark)]"
                       : homeOverlay
                         ? "text-white/84 hover:bg-white/12 hover:text-white"
-                        : "text-[var(--text-secondary)] hover:bg-[var(--brand-primary-soft)] hover:text-[var(--brand-accent-dark)]"
+                        : "text-[var(--brand-primary-dark)] hover:bg-[var(--brand-primary-soft)] hover:text-[var(--brand-primary-dark)]"
                   )}
                 >
                   {item.label}
+                  {isDropdown && (
+                    <svg className="w-3.5 h-3.5 opacity-60" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  )}
                 </Link>
               );
+
+              if (isDropdown) {
+                return (
+                  <div key={item.href} className="group relative">
+                    {LinkElement}
+                    <div className="absolute left-1/2 top-full mt-2 w-[320px] -translate-x-1/2 rounded-2xl border border-[var(--border)] bg-white/95 p-3 shadow-[0_24px_54px_rgba(0,37,58,0.12)] backdrop-blur-xl transition-all duration-300 invisible opacity-0 translate-y-2 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0">
+                      <div className="grid gap-1">
+                        {certificationSchemes.map((scheme) => (
+                          <Link
+                            key={scheme.slug}
+                            href={`/skema-sertifikasi/${scheme.slug}`}
+                            className="block rounded-xl px-4 py-2.5 transition-colors hover:bg-[var(--brand-primary-soft)] group/link"
+                          >
+                            <p className="text-sm font-semibold text-[var(--brand-primary-dark)] group-hover/link:text-[var(--brand-primary)]">
+                              {scheme.title}
+                            </p>
+                            <p className="mt-0.5 text-xs text-[var(--text-secondary)] line-clamp-1">
+                              {scheme.shortDescription}
+                            </p>
+                          </Link>
+                        ))}
+                        <Link
+                          href="/skema-sertifikasi"
+                          className="mt-2 block rounded-xl border border-[var(--brand-accent)]/20 bg-[var(--brand-accent-soft)] px-4 py-2 text-center text-xs font-semibold text-[var(--brand-accent-dark)] transition-colors hover:bg-[var(--brand-accent)] hover:text-white"
+                        >
+                          Lihat Semua Skema
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                );
+              }
+
+              return <div key={item.href}>{LinkElement}</div>;
             })}
           </nav>
         </div>
@@ -118,7 +162,7 @@ export function SiteHeader({ overlay = false }: SiteHeaderProps) {
         <div className="ml-auto hidden sm:block">
           <Link
             href={registrationWhatsappHref}
-            className="inline-flex items-center justify-center rounded-full border border-[var(--brand-accent)] bg-[var(--brand-accent)] px-5 py-3 text-sm font-semibold text-white shadow-[0_16px_34px_rgba(193,18,31,0.24)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--brand-accent-dark)] hover:bg-[var(--brand-accent-dark)]"
+            className="inline-flex items-center justify-center rounded-full border border-[var(--brand-accent)] bg-[var(--brand-accent)] px-5 py-3 text-sm font-semibold text-white shadow-[0_16px_34px_rgba(200,16,46,0.24)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--brand-accent-dark)] hover:bg-[var(--brand-accent-dark)]"
           >
             Daftar Sekarang
           </Link>
@@ -160,7 +204,7 @@ export function SiteHeader({ overlay = false }: SiteHeaderProps) {
                       "rounded-[12px] px-4 py-3 text-sm font-medium transition-colors",
                       isActive
                         ? "bg-[var(--brand-accent-soft)] text-[var(--brand-accent-dark)]"
-                        : "text-[var(--text-secondary)] hover:bg-[var(--brand-primary-soft)] hover:text-[var(--brand-accent-dark)]"
+                        : "text-[var(--brand-primary-dark)] hover:bg-[var(--brand-primary-soft)] hover:text-[var(--brand-primary-dark)]"
                     )}
                     onClick={() => setIsOpen(false)}
                   >

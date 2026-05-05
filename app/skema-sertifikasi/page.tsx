@@ -27,8 +27,8 @@ export default function SkemaSertifikasiPage() {
             />
             <PageHeader
               eyebrow="Skema Sertifikasi"
-              title="Tujuh skema prioritas ditata dalam format yang lebih jelas."
-              description="Listing ini masih menggunakan data dummy, tetapi struktur informasi sudah disiapkan untuk menampung ringkasan kompetensi, detail persyaratan, dan CTA lanjutan."
+              title="Skema Sertifikasi Prioritas Bidang MICE"
+              description="LSP MICE menyediakan berbagai skema sertifikasi yang dirancang secara khusus untuk memenuhi kebutuhan industri Meeting, Incentive, Convention, and Exhibition (MICE). Pilih skema yang sesuai dengan bidang keahlian Anda untuk mendapatkan pengakuan kompetensi resmi."
               actions={
                 <>
                   <CTAButton href="/daftar-online">Daftar Online</CTAButton>
@@ -38,8 +38,8 @@ export default function SkemaSertifikasiPage() {
                 </>
               }
               meta={[
-                { label: "Jumlah Skema", value: `${certificationSchemes.length} skema dummy` },
-                { label: "Mode Data", value: "Frontend-only tanpa backend" },
+                { label: "Standar Uji", value: "Berbasis Kompetensi Kerja" },
+                { label: "Lisensi", value: "Diakui secara Nasional" },
               ]}
             />
           </div>

@@ -8,11 +8,11 @@ type StatusBadgeProps = {
 
 const statusStyles: Record<CertificateHolderStatus, string> = {
   Active:
-    "border border-[var(--brand-primary)]/12 bg-[var(--brand-primary-soft)] text-[var(--brand-primary-dark)]",
+    "border border-emerald-200 bg-emerald-50 text-emerald-700",
   Expired:
-    "border border-[var(--brand-accent)]/12 bg-[var(--brand-accent-soft)] text-[var(--brand-accent-dark)]",
+    "border border-red-200 bg-red-50 text-red-700",
   "Pending Verification":
-    "border border-slate-300 bg-slate-100 text-slate-700",
+    "border border-amber-200 bg-amber-50 text-amber-700",
 };
 
 export function StatusBadge({ status, className }: StatusBadgeProps) {

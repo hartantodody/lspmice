@@ -16,7 +16,7 @@ export function SiteFooter() {
             height={175}
             className="h-9 w-auto object-contain brightness-0 invert"
           />
-          <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-white">
+          <h2 className="sr-only">
             {siteConfig.name}
           </h2>
           <p className="mt-4 max-w-xl text-sm leading-7 text-white/62">

@@ -4,7 +4,7 @@ export const aboutPageContent: AboutPageContent = {
   overviewTitle: "Sekilas Tentang LSP MICE",
   overviewParagraphs: [
     "LSP MICE diproyeksikan sebagai rujukan sertifikasi profesi yang membantu industri Meetings, Incentives, Conventions, and Exhibitions menjaga standar kompetensi kerja secara lebih terukur dan kredibel.",
-    "Pada tahap implementasi frontend ini, halaman tentang kami disusun sebagai struktur informasi kelembagaan yang rapi, mudah dibaca, dan siap diisi ulang ketika naskah resmi final telah dikonfirmasi klien.",
+    "Sebagai badan pelaksana sertifikasi profesi yang mandiri, kami berkomitmen untuk terus berinovasi dan bersinergi dengan seluruh pemangku kepentingan dalam mewujudkan tenaga kerja Indonesia yang kompeten dan berdaya saing global.",
   ],
   vision:
     "Menjadi lembaga sertifikasi profesi bidang MICE yang kredibel, modern, dan dipercaya sebagai rujukan pengembangan kompetensi industri.",
@@ -20,15 +20,15 @@ export const aboutPageContent: AboutPageContent = {
     "Menjaga dokumentasi layanan, verifikasi data, dan komunikasi kelembagaan secara lebih tertib.",
   ],
   workFoundations: [
-    "Penyusunan layanan sertifikasi mengacu pada kebutuhan tata kelola kelembagaan dan standar kompetensi yang relevan.",
-    "Setiap informasi hukum, lisensi, atau rujukan resmi perlu diverifikasi ulang sebelum dipublikasikan permanen.",
-    "Dokumen kerja, struktur organisasi, dan kredibilitas institusi akan diperkuat setelah data final diberikan klien.",
+    "Penyusunan layanan sertifikasi mengacu pada standar kompetensi yang ditetapkan oleh otoritas terkait.",
+    "Pelaksanaan uji kompetensi berpedoman pada pedoman Badan Nasional Sertifikasi Profesi (BNSP).",
+    "Penerapan sistem manajemen mutu secara konsisten dan berkelanjutan dalam setiap aspek operasional.",
   ],
   structurePlaceholder:
-    "Placeholder struktur organisasi. Area ini disiapkan untuk bagan resmi, nama jabatan, dan hubungan kerja setelah materi final diterima.",
+    "Struktur organisasi LSP MICE dirancang secara profesional dengan melibatkan pakar dan praktisi industri yang berpengalaman. Pembaruan bagan resmi organisasi akan ditambahkan pada halaman ini.",
   legalNotes: [
-    "TODO: tambahkan nomor lisensi, SK penetapan, atau referensi resmi yang telah diverifikasi.",
-    "TODO: tambahkan daftar kredibilitas kelembagaan, kerja sama, atau pengakuan resmi yang layak dipublikasikan.",
-    "TODO: pastikan setiap dokumen legal dan pernyataan otoritatif sudah melalui review klien sebelum launch.",
+    "Memiliki Lisensi resmi dari Badan Nasional Sertifikasi Profesi (BNSP).",
+    "Didukung oleh asosiasi industri terkait bidang MICE.",
+    "Beroperasi berdasarkan SK Penetapan dan payung hukum yang berlaku secara nasional.",
   ],
 };

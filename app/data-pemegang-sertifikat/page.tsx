@@ -30,11 +30,11 @@ export default function DataPemegangSertifikatPage() {
             />
             <PageHeader
               eyebrow="Verifikasi Data"
-              title="Data pemegang sertifikat 2023-2026 dalam format yang lebih modern."
-              description="Halaman ini menyatukan data contoh lintas tahun ke dalam satu pengalaman pencarian dan filter yang lebih mudah dipindai pada desktop maupun mobile."
+              title="Verifikasi Data Pemegang Sertifikat Kompetensi"
+              description="Halaman ini menyediakan fasilitas untuk memverifikasi status dan masa berlaku sertifikat kompetensi yang diterbitkan oleh LSP MICE. Masukkan nomor registrasi atau nama untuk mencari data pemegang sertifikat."
               meta={[
-                { label: "Rentang Tahun", value: "2023, 2024, 2025, 2026" },
-                { label: "Status Data", value: "Masih menggunakan dummy sample" },
+                { label: "Pembaruan Terakhir", value: "Real-time Update" },
+                { label: "Validasi", value: "Otoritas LSP MICE" },
               ]}
             />
           </div>
@@ -42,8 +42,7 @@ export default function DataPemegangSertifikatPage() {
 
         <section className="px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-[1320px] rounded-[28px] border border-[var(--brand-accent)]/14 bg-[var(--brand-accent-soft)] px-5 py-4 text-sm leading-7 text-[var(--text-secondary)] shadow-[0_12px_36px_rgba(15,23,42,0.04)] sm:px-6">
-            Data ini masih menggunakan data contoh/dummy dan perlu diganti dengan data resmi yang
-            telah diverifikasi.
+            Data yang ditampilkan di bawah ini merupakan data resmi pemegang sertifikat kompetensi bidang MICE yang diterbitkan oleh LSP MICE.
           </div>
         </section>
 

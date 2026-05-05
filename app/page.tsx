@@ -3,12 +3,16 @@ import type { CSSProperties } from 'react'
 import { CTAButton } from '@/app/_components/cta-button'
 import { HeroSlideshow } from '@/app/_components/hero-slideshow'
 import { HomeNewsShowcase } from '@/app/_components/home-news-showcase'
+import { ParticleCanvas } from '@/app/_components/particle-canvas'
 import { RevealSection } from '@/app/_components/reveal-section'
 import { CertificationSchemeCard } from '@/app/_components/scheme-card'
 import { ScrollMergePanels } from '@/app/_components/scroll-merge-panels'
 import { SectionHeader } from '@/app/_components/section-heading'
 import { SiteShell } from '@/app/_components/site-shell'
 import { SpotlightFeatureCard } from '@/app/_components/spotlight-feature-card'
+import { MapPin, EnvelopeSimple, Phone, Clock } from '@phosphor-icons/react/dist/ssr'
+
+import { cn } from '@/app/_lib/cn'
 import { contactInfo, registrationWhatsappHref } from '@/src/data/contact'
 import { featuredCertificationSchemes } from '@/src/data/certification-schemes'
 import { newsPosts } from '@/src/data/news'
@@ -20,7 +24,7 @@ import {
 
 export default function Home() {
   const featuredNews = newsPosts.slice(0, 3)
-  const newsPreview = newsPosts.slice(0, 4)
+  const newsPreview = newsPosts.slice(0, 3)
 
   return (
     <SiteShell overlayHeader>
@@ -46,10 +50,10 @@ export default function Home() {
             >
               <ScrollMergePanels
                 className='relative z-10 mx-auto min-h-[100svh] max-w-[1320px] lg:grid-cols-[1.02fr_0.98fr]'
-                leftClassName="relative isolate px-4 pb-16 pt-20 sm:px-6 sm:pb-20 sm:pt-24 lg:pl-8 lg:pr-10 lg:pb-24 lg:pt-28 lg:before:absolute lg:before:inset-y-0 lg:before:right-0 lg:before:w-[100vw] lg:before:rounded-tr-[36px] lg:before:bg-[linear-gradient(180deg,#FBFDFF_0%,#EEF4FB_100%)] lg:before:content-['']"
-                rightClassName="relative isolate px-4 pb-16 pt-20 text-white sm:px-6 sm:pb-20 sm:pt-24 lg:pl-10 lg:pr-8 lg:pb-24 lg:pt-28 lg:before:absolute lg:before:inset-y-0 lg:before:left-0 lg:before:w-[100vw] lg:before:rounded-tl-[36px] lg:before:bg-[linear-gradient(180deg,#0B2545_0%,#123E75_100%)] lg:before:content-['']"
+                leftClassName="relative isolate px-4 pb-16 pt-20 sm:px-6 sm:pb-20 sm:pt-24 lg:pl-8 lg:pr-10 lg:pb-24 lg:pt-28 lg:before:absolute lg:before:inset-y-0 lg:before:right-0 lg:before:w-[100vw] lg:before:rounded-tr-[36px] lg:before:bg-[linear-gradient(180deg,#F8FAFC_0%,#E6F0F5_100%)] lg:before:content-['']"
+                rightClassName="relative isolate px-4 pb-16 pt-20 text-white sm:px-6 sm:pb-20 sm:pt-24 lg:pl-10 lg:pr-8 lg:pb-24 lg:pt-28 lg:before:absolute lg:before:inset-y-0 lg:before:left-0 lg:before:w-[100vw] lg:before:rounded-tl-[36px] lg:before:bg-[linear-gradient(180deg,#00253A_0%,#003B5C_100%)] lg:before:content-['']"
                 left={
-                  <div className='relative z-10 mx-auto max-w-[38rem] rounded-[30px] bg-[linear-gradient(180deg,#FBFDFF_0%,#EEF4FB_100%)] px-7 py-8 shadow-[0_24px_60px_rgba(15,23,42,0.08)] sm:px-10 sm:py-11 lg:ml-0 lg:mr-auto lg:max-w-[42rem] lg:rounded-none lg:bg-transparent lg:px-0 lg:py-0 lg:shadow-none'>
+                  <div className='relative z-10 mx-auto max-w-[38rem] rounded-[30px] bg-[linear-gradient(180deg,#F8FAFC_0%,#E6F0F5_100%)] px-7 py-8 shadow-[0_24px_60px_rgba(15,23,42,0.08)] sm:px-10 sm:py-11 lg:ml-0 lg:mr-auto lg:max-w-[42rem] lg:rounded-none lg:bg-transparent lg:px-0 lg:py-0 lg:shadow-none'>
                     <div className='space-y-9'>
                       <SectionHeader
                         eyebrow={homePageContent.about.eyebrow}
@@ -72,7 +76,7 @@ export default function Home() {
                   </div>
                 }
                 right={
-                  <div className='relative z-10 mx-auto max-w-[38rem] rounded-[30px] bg-[linear-gradient(180deg,#0B2545_0%,#123E75_100%)] px-8 py-10 shadow-[0_24px_72px_rgba(11,37,69,0.22)] sm:px-10 sm:py-11 lg:ml-auto lg:mr-0 lg:max-w-[42rem] lg:rounded-none lg:bg-transparent lg:px-0 lg:py-0 lg:shadow-none'>
+                  <div className='relative z-10 mx-auto max-w-[38rem] rounded-[30px] bg-[linear-gradient(180deg,#00253A_0%,#003B5C_100%)] px-8 py-10 shadow-[0_24px_72px_rgba(0,37,58,0.22)] sm:px-10 sm:py-11 lg:ml-auto lg:mr-0 lg:max-w-[42rem] lg:rounded-none lg:bg-transparent lg:px-0 lg:py-0 lg:shadow-none'>
                     <div className='space-y-9'>
                       <p
                         data-reveal
@@ -128,9 +132,12 @@ export default function Home() {
             <RevealSection
               id='skema'
               variant='right'
-              className='bg-white px-4 pb-14 pt-20 sm:px-6 sm:pb-20 sm:pt-24 lg:px-8 lg:pt-28'
+              className='relative overflow-hidden bg-slate-50 px-4 pb-14 pt-20 sm:px-6 sm:pb-20 sm:pt-24 lg:px-8 lg:pt-28'
             >
-              <div className='mx-auto max-w-[1320px]'>
+              {/* Antigravity Cursor Particles Background */}
+              <ParticleCanvas className="opacity-[0.85] mix-blend-multiply" />
+
+              <div className='relative z-10 mx-auto max-w-[1320px]'>
                 <SectionHeader
                   eyebrow={homePageContent.certification.eyebrow}
                   title={homePageContent.certification.title}
@@ -160,7 +167,7 @@ export default function Home() {
             <RevealSection
               id='berita'
               variant='mask'
-              className='bg-[linear-gradient(180deg,#f8fafc_0%,#eef4fb_100%)] px-4 pb-14 pt-20 sm:px-6 sm:pb-20 sm:pt-24 lg:px-8 lg:pt-28'
+              className='bg-[linear-gradient(180deg,#f8fafc_0%,#e6f0f5_100%)] px-4 pb-14 pt-20 sm:px-6 sm:pb-20 sm:pt-24 lg:px-8 lg:pt-28'
             >
               <div className='mx-auto max-w-[1320px]'>
                 <SectionHeader
@@ -183,8 +190,9 @@ export default function Home() {
               variant='left'
               className='bg-[#f8fafc] px-4 pb-14 pt-20 sm:px-6 sm:pb-20 sm:pt-24 lg:px-8 lg:pt-28'
             >
-              <div className='mx-auto max-w-[1320px] scroll-mt-28 rounded-[34px] border border-white/50 bg-[linear-gradient(135deg,#0B2545_0%,#123E75_58%,#164C8F_100%)] p-6 text-white shadow-[0_28px_100px_rgba(11,37,69,0.28)] sm:scroll-mt-32 sm:p-8 lg:p-10'>
-                <div className='grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-end'>
+              <div className='relative overflow-hidden mx-auto max-w-[1320px] scroll-mt-28 rounded-[34px] border border-white/50 bg-[linear-gradient(135deg,#00253A_0%,#003B5C_58%,#005A8C_100%)] p-6 text-white shadow-[0_28px_100px_rgba(0,37,58,0.28)] sm:scroll-mt-32 sm:p-8 lg:p-10'>
+                <div className='pointer-events-none absolute inset-0 opacity-[0.08] bg-[linear-gradient(rgba(255,255,255,0.2)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.2)_1px,transparent_1px)] [background-size:24px_24px] animate-pan-diagonal'></div>
+                <div className='relative z-10 grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-end'>
                   <div>
                     <p
                       data-reveal
@@ -227,8 +235,8 @@ export default function Home() {
                             ? registrationWhatsappHref
                             : homePageContent.contact.actions[1].href
                         }
-                        variant='secondary'
-                        className='border-[var(--brand-accent)] bg-[var(--brand-accent)] text-white hover:border-[var(--brand-accent-dark)] hover:bg-[var(--brand-accent-dark)] hover:text-white'
+                        variant='primary'
+                        className='!border-[var(--brand-accent)] !bg-[var(--brand-accent)] !text-white hover:!border-[var(--brand-accent-dark)] hover:!bg-[var(--brand-accent-dark)]'
                       >
                         {homePageContent.contact.actions[1].label}
                       </CTAButton>
@@ -237,25 +245,57 @@ export default function Home() {
 
                   <div className='grid gap-4'>
                     {homePageContent.contact.infoCards.map(
-                      ({ label, value }, index) => (
-                        <div
-                          key={label}
-                          data-reveal
-                          style={
-                            {
-                              '--reveal-delay': `${index * 90 + 140}ms`
-                            } as CSSProperties
-                          }
-                          className='rounded-[24px] border border-white/12 bg-white/8 p-5 backdrop-blur-sm'
-                        >
-                          <p className='text-[11px] font-semibold uppercase tracking-[0.26em] text-[var(--brand-accent-soft)]'>
-                            {label}
-                          </p>
-                          <p className='mt-2 text-sm leading-7 text-white/72'>
-                            {value}
-                          </p>
-                        </div>
-                      )
+                      ({ label, value }, index) => {
+                        let href = undefined;
+                        if (label === 'Alamat') {
+                          href = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(value)}`;
+                        } else if (label === 'Office') {
+                          href = `tel:${value.replace(/\D/g, '')}`;
+                        } else if (label === 'Contact Person') {
+                          href = `https://wa.me/${value.replace(/\D/g, '').replace(/^0/, '62')}`;
+                        } else if (label === 'Email') {
+                          href = `mailto:${value}`;
+                        }
+
+                        const CardWrapper = href ? 'a' : 'div';
+
+                        return (
+                          <CardWrapper
+                            key={label}
+                            href={href}
+                            target={href && href.startsWith('http') ? '_blank' : undefined}
+                            rel={href && href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                            data-reveal
+                            style={
+                              {
+                                '--reveal-delay': `${index * 90 + 140}ms`
+                              } as CSSProperties
+                            }
+                            className={cn(
+                              'group rounded-[24px] border border-white/12 bg-[rgba(255,255,255,0.06)] p-5 backdrop-blur-md',
+                              href && 'transition-colors hover:bg-[rgba(255,255,255,0.12)] hover:border-white/20'
+                            )}
+                          >
+                            <div className='flex items-start gap-4'>
+                              <div className={cn(
+                                'inline-flex shrink-0 items-center justify-center rounded-full bg-[var(--brand-accent)]/20 p-2.5 text-[var(--brand-accent-soft)]',
+                                href && 'transition-colors group-hover:bg-[var(--brand-accent)] group-hover:text-white'
+                              )}>
+                                {label === 'Alamat' && <MapPin size={24} weight="duotone" />}
+                                {label === 'Email' && <EnvelopeSimple size={24} weight="duotone" />}
+                                {(label === 'Office' || label === 'Contact Person') && <Phone size={24} weight="duotone" />}
+                                {label === 'Office Hours' && <Clock size={24} weight="duotone" />}
+                              </div>
+                              <div>
+                                <p className='text-[11px] font-semibold uppercase tracking-[0.26em] text-[var(--brand-accent-soft)]'>
+                                  {label}
+                                </p>
+                                <p className='mt-1.5 font-medium leading-7 text-white/94'>{value}</p>
+                              </div>
+                            </div>
+                          </CardWrapper>
+                        )
+                      }
                     )}
                   </div>
                 </div>

@@ -192,8 +192,8 @@ export function HeroSlideshow({ slides, contact, hero }: HeroSlideshowProps) {
         </div>
       </div>
 
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(11,37,69,0.8)_0%,rgba(11,37,69,0.54)_32%,rgba(11,37,69,0.14)_64%,rgba(11,37,69,0.42)_100%)]" />
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(11,37,69,0.14)_0%,rgba(11,37,69,0.2)_16%,rgba(11,37,69,0.22)_48%,rgba(11,37,69,0.9)_100%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(0,37,58,0.78)_0%,rgba(0,37,58,0.32)_32%,transparent_64%,rgba(0,37,58,0.2)_100%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,transparent_0%,transparent_16%,transparent_48%,rgba(0,37,58,0.85)_100%)]" />
 
       <div className="relative z-10 flex min-h-[100svh] flex-col px-4 pb-5 pt-[6.5rem] sm:px-6 sm:pb-6 sm:pt-[7rem] lg:px-8 lg:pb-8 lg:pt-[8.2rem]">
         <div className="grid flex-1 gap-10 lg:grid-cols-[minmax(0,1fr)_6rem] lg:gap-6">
@@ -245,11 +245,11 @@ export function HeroSlideshow({ slides, contact, hero }: HeroSlideshowProps) {
                     className={cn(
                       "inline-flex items-center justify-center rounded-full px-5 py-3 text-sm font-semibold transition-all duration-300",
                       action.variant === "primary" &&
-                        "gap-3 border border-[var(--brand-accent)] bg-[var(--brand-accent)] text-white shadow-[0_16px_34px_rgba(193,18,31,0.28)] hover:-translate-y-0.5 hover:border-[var(--brand-accent-dark)] hover:bg-[var(--brand-accent-dark)]",
+                        "gap-3 border border-[var(--brand-accent)] bg-[var(--brand-accent)] text-white shadow-[0_16px_34px_rgba(200,16,46,0.28)] hover:-translate-y-0.5 hover:border-[var(--brand-accent-dark)] hover:bg-[var(--brand-accent-dark)]",
                       action.variant === "secondary" &&
-                        "border border-white/50 bg-white/10 text-white shadow-[0_14px_28px_rgba(11,37,69,0.18)] hover:-translate-y-0.5 hover:border-white hover:bg-white/18 hover:text-white",
+                        "border border-white/50 bg-white/10 text-white shadow-[0_14px_28px_rgba(0,37,58,0.18)] hover:-translate-y-0.5 hover:border-white hover:bg-white/18 hover:text-white",
                       action.variant === "accent" &&
-                        "border border-white bg-white text-[var(--brand-primary-dark)] shadow-[0_14px_28px_rgba(11,37,69,0.14)] hover:-translate-y-0.5 hover:border-[var(--brand-accent)] hover:text-[var(--brand-accent-dark)]"
+                        "border border-white bg-white text-[var(--brand-primary-dark)] shadow-[0_14px_28px_rgba(0,37,58,0.14)] hover:-translate-y-0.5 hover:border-[var(--brand-accent)] hover:text-[var(--brand-accent-dark)]"
                     )}
                   >
                     {action.label}
@@ -264,7 +264,7 @@ export function HeroSlideshow({ slides, contact, hero }: HeroSlideshowProps) {
 
           <div className="hidden lg:flex lg:flex-col lg:items-end lg:justify-center lg:gap-3">
             <div className="group/contact relative flex justify-end">
-              <div className="pointer-events-none absolute right-[4.5rem] top-1/2 w-[20rem] -translate-y-1/2 translate-x-2 rounded-[16px] bg-[rgba(11,37,69,0.84)] p-4 opacity-0 shadow-[0_24px_64px_rgba(11,37,69,0.28)] backdrop-blur-2xl transition-all duration-300 group-hover/contact:pointer-events-auto group-hover/contact:translate-x-0 group-hover/contact:opacity-100 group-focus-within/contact:pointer-events-auto group-focus-within/contact:translate-x-0 group-focus-within/contact:opacity-100">
+              <div className="pointer-events-none absolute right-[4.5rem] top-1/2 w-[20rem] -translate-y-1/2 translate-x-2 rounded-[16px] bg-[rgba(0,37,58,0.84)] p-4 opacity-0 shadow-[0_24px_64px_rgba(0,37,58,0.28)] backdrop-blur-2xl transition-all duration-300 group-hover/contact:pointer-events-auto group-hover/contact:translate-x-0 group-hover/contact:opacity-100 group-focus-within/contact:pointer-events-auto group-focus-within/contact:translate-x-0 group-focus-within/contact:opacity-100">
                 <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-[var(--brand-accent)]">
                   {hero.contactLabel}
                 </p>
@@ -286,7 +286,7 @@ export function HeroSlideshow({ slides, contact, hero }: HeroSlideshowProps) {
               <button
                 type="button"
                 aria-label="Lihat alamat dan nomor telepon"
-                className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-white text-[var(--brand-primary-dark)] shadow-[0_16px_34px_rgba(11,37,69,0.18)] transition-all duration-300 hover:-translate-y-0.5 hover:text-[var(--brand-accent-dark)]"
+                className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-white text-[var(--brand-primary-dark)] shadow-[0_16px_34px_rgba(0,37,58,0.18)] transition-all duration-300 hover:-translate-y-0.5 hover:text-[var(--brand-accent-dark)]"
               >
                 <Phone size={18} weight="fill" />
               </button>
@@ -300,7 +300,7 @@ export function HeroSlideshow({ slides, contact, hero }: HeroSlideshowProps) {
                   key={item.label}
                   href={item.href}
                   aria-label={item.label}
-                  className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-white text-[var(--brand-primary-dark)] shadow-[0_16px_34px_rgba(11,37,69,0.18)] transition-all duration-300 hover:-translate-y-0.5 hover:text-[var(--brand-accent-dark)]"
+                  className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-white text-[var(--brand-primary-dark)] shadow-[0_16px_34px_rgba(0,37,58,0.18)] transition-all duration-300 hover:-translate-y-0.5 hover:text-[var(--brand-accent-dark)]"
                 >
                   <Icon size={18} weight="fill" />
                 </Link>
@@ -355,7 +355,7 @@ export function HeroSlideshow({ slides, contact, hero }: HeroSlideshowProps) {
                     key={item.label}
                     href={item.href}
                     aria-label={item.label}
-                    className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-white text-[var(--brand-primary-dark)] shadow-[0_12px_26px_rgba(11,37,69,0.14)] transition-colors hover:text-[var(--brand-accent-dark)]"
+                    className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-white text-[var(--brand-primary-dark)] shadow-[0_12px_26px_rgba(0,37,58,0.14)] transition-colors hover:text-[var(--brand-accent-dark)]"
                   >
                     <Icon size={18} weight="fill" />
                   </Link>
@@ -377,7 +377,7 @@ export function HeroSlideshow({ slides, contact, hero }: HeroSlideshowProps) {
 
           <Link
             href="#tentang"
-            className="inline-flex w-fit items-center gap-3 self-start rounded-full border border-white/14 bg-[rgba(11,37,69,0.38)] px-4 py-3 text-sm font-medium text-white/76 backdrop-blur-xl transition-all duration-300 hover:bg-[rgba(11,37,69,0.54)] sm:self-auto"
+            className="inline-flex w-fit items-center gap-3 self-start rounded-full border border-white/14 bg-[rgba(0,37,58,0.38)] px-4 py-3 text-sm font-medium text-white/76 backdrop-blur-xl transition-all duration-300 hover:bg-[rgba(0,37,58,0.54)] sm:self-auto"
           >
             {hero.scrollLabel}
             <span className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/16 text-white/86">

@@ -29,19 +29,20 @@ export function HomeNewsShowcase({
 
   return (
     <div className="mt-10 grid gap-6 lg:grid-cols-[0.82fr_1.18fr]">
-      <article className="relative overflow-hidden rounded-[32px] border border-[var(--brand-primary)]/12 bg-[linear-gradient(135deg,#0B2545_0%,#123E75_100%)] p-6 text-white shadow-[0_24px_72px_rgba(11,37,69,0.2)] sm:p-8">
-        <div className="pointer-events-none absolute right-0 top-0 h-44 w-40 overflow-hidden rounded-bl-[28px] opacity-40 sm:h-52 sm:w-52">
+      <article className="relative flex flex-col overflow-hidden rounded-[32px] border border-[var(--brand-primary)]/12 bg-[linear-gradient(135deg,#00253A_0%,#003B5C_100%)] p-6 text-white shadow-[0_24px_72px_rgba(0,37,58,0.2)] sm:p-8">
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-[140px] overflow-hidden rounded-t-[32px]">
           <Image
             src={activePost.image}
             alt={activePost.title}
             fill
-            sizes="220px"
+            sizes="(max-width: 1024px) 100vw, 50vw"
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(11,37,69,0.05),rgba(11,37,69,0.8))]" />
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,#00253A_10%,transparent_100%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(0deg,#00253A_10%,transparent_100%)]" />
         </div>
 
-        <div className="relative z-10 max-w-[34rem]">
+        <div className="relative z-10 flex h-full flex-col max-w-[34rem]">
           <p className="text-[11px] font-semibold uppercase tracking-[0.34em] text-[var(--brand-accent-soft)]">
             {activePost.category}
           </p>
@@ -53,7 +54,7 @@ export function HomeNewsShowcase({
           <div className="mt-6 rounded-[24px] border border-white/12 bg-white/8 p-4 text-sm leading-7 text-white/72">
             {activePost.content[0]}
           </div>
-          <div className="mt-7 flex flex-wrap items-center gap-4">
+          <div className="mt-auto flex flex-wrap items-center gap-4 pt-7">
             <CTAButton
               href={`/berita#${activePost.slug}`}
               variant="secondary"

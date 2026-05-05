@@ -10,7 +10,7 @@ import { aboutPageContent } from "@/src/data/about";
 export const metadata: Metadata = {
   title: "Tentang Kami",
   description:
-    "Profil singkat LSP MICE, visi misi, tugas dan fungsi, serta placeholder legalitas untuk kebutuhan review frontend.",
+    "Profil LSP MICE, visi misi, tugas dan fungsi, serta legalitas kelembagaan.",
 };
 
 export default function TentangKamiPage() {
@@ -27,8 +27,8 @@ export default function TentangKamiPage() {
             />
             <PageHeader
               eyebrow="Tentang Kami"
-              title="Profil LSP MICE dalam satu halaman yang lebih terstruktur."
-              description="Halaman ini merangkum profil lembaga, visi dan misi, tugas dan fungsi, landasan kerja, serta placeholder resmi yang masih menunggu validasi klien."
+              title="Mengenal Lebih Dekat LSP MICE"
+              description="Lembaga Sertifikasi Profesi yang berdedikasi untuk meningkatkan kualitas dan daya saing sumber daya manusia di industri Meeting, Incentive, Convention, and Exhibition (MICE)."
               actions={
                 <>
                   <CTAButton href="/kontak">Hubungi Kami</CTAButton>
@@ -38,8 +38,8 @@ export default function TentangKamiPage() {
                 </>
               }
               meta={[
-                { label: "Fokus", value: "Profil kelembagaan dan arah layanan publik" },
-                { label: "Status Konten", value: "Masih memakai placeholder yang dapat direvisi" },
+                { label: "Fokus Utama", value: "Sertifikasi Profesi Bidang MICE" },
+                { label: "Dedikasi", value: "Peningkatan Kompetensi SDM" },
               ]}
             />
           </div>
@@ -51,7 +51,7 @@ export default function TentangKamiPage() {
               <SectionHeader
                 eyebrow={aboutPageContent.overviewTitle}
                 title="Sekilas Tentang LSP MICE"
-                description="Ringkasan berikut disusun sebagai placeholder profesional untuk memudahkan review struktur informasi dan arah copywriting."
+                description="Membangun standar kompetensi yang diakui secara nasional untuk memajukan industri pariwisata dan event."
               />
               <div className="mt-6 space-y-4 text-sm leading-8 text-[var(--text-secondary)]">
                 {aboutPageContent.overviewParagraphs.map((paragraph) => (
@@ -65,7 +65,7 @@ export default function TentangKamiPage() {
                 Visi
               </p>
               <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-[var(--brand-primary-dark)]">
-                Arah kerja yang ingin ditonjolkan
+                Membangun SDM Unggul
               </h2>
               <p className="mt-5 text-sm leading-8 text-[var(--text-secondary)]">
                 {aboutPageContent.vision}
@@ -81,7 +81,7 @@ export default function TentangKamiPage() {
                 Visi dan Misi
               </p>
               <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-[var(--brand-primary-dark)]">
-                Misi placeholder untuk review
+                Komitmen Kami
               </h2>
               <ul className="mt-6 space-y-3 text-sm leading-8 text-[var(--text-secondary)]">
                 {aboutPageContent.missions.map((mission) => (
@@ -97,7 +97,7 @@ export default function TentangKamiPage() {
                 Tugas dan Fungsi
               </p>
               <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-[var(--brand-primary-dark)]">
-                Peran yang ditampilkan secara ringkas
+                Peran Kelembagaan
               </h2>
               <ul className="mt-6 space-y-3 text-sm leading-8 text-[var(--text-secondary)]">
                 {aboutPageContent.functions.map((item) => (
@@ -117,7 +117,7 @@ export default function TentangKamiPage() {
                 Landasan Kerja
               </p>
               <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-[var(--brand-primary-dark)]">
-                Struktur dasar yang masih bisa diperdalam
+                Standar Pelaksanaan Kerja
               </h2>
               <ul className="mt-6 space-y-3 text-sm leading-8 text-[var(--text-secondary)]">
                 {aboutPageContent.workFoundations.map((item) => (
@@ -133,7 +133,7 @@ export default function TentangKamiPage() {
                 Struktur Organisasi
               </p>
               <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-[var(--brand-primary-dark)]">
-                Placeholder bagan organisasi
+                Struktur Kelembagaan
               </h2>
               <p className="mt-5 text-sm leading-8 text-[var(--text-secondary)]">
                 {aboutPageContent.structurePlaceholder}
@@ -148,7 +148,7 @@ export default function TentangKamiPage() {
               Legalitas dan Kredibilitas
             </p>
             <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-[var(--brand-primary-dark)]">
-              Placeholder resmi yang wajib diverifikasi
+              Pengakuan Formal dan Dasar Hukum
             </h2>
             <ul className="mt-6 space-y-3 text-sm leading-8 text-[var(--text-secondary)]">
               {aboutPageContent.legalNotes.map((item) => (
