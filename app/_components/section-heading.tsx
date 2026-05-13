@@ -30,7 +30,7 @@ export function SectionHeading({
       <p
         data-reveal
         style={{ '--reveal-delay': '0ms' } as CSSProperties}
-        className='text-[11px] font-semibold uppercase tracking-[0.34em] text-[var(--brand-accent-dark)]'
+        className='text-[11px] font-semibold uppercase tracking-[0.34em] text-[var(--brand-primary)]'
       >
         {eyebrow}
       </p>
@@ -48,7 +48,7 @@ export function SectionHeading({
           <p
             data-reveal
             style={{ '--reveal-delay': '160ms' } as CSSProperties}
-            className='text-balance text-2xl font-semibold leading-tight tracking-[-0.03em] text-[var(--brand-primary)] sm:text-3xl lg:text-4xl'
+            className='text-balance text-2xl font-semibold leading-tight tracking-[-0.03em] text-[var(--brand-accent-dark)] sm:text-3xl lg:text-4xl'
           >
             {accent}
           </p>

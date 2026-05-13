@@ -23,16 +23,16 @@ export const contactActionCards: ContactActionCard[] = [
   {
     title: "Tanya Sertifikasi",
     description:
-      "Hubungi tim layanan untuk menanyakan skema sertifikasi, jadwal pelaksanaan, atau persyaratan awal peserta.",
-    href: "/kontak",
-    label: "Buka Kontak",
+      "Hubungi tim layanan via WhatsApp untuk menanyakan skema sertifikasi, jadwal pelaksanaan, atau persyaratan awal peserta.",
+    href: inquiryWhatsappHref,
+    label: "Chat WhatsApp",
   },
   {
     title: "Daftar Online",
     description:
-      "Lanjutkan ke halaman pendaftaran untuk memperoleh arahan awal mengenai proses sertifikasi kompetensi.",
-    href: "/daftar-online",
-    label: "Mulai Daftar",
+      "Kirim pendaftaran melalui email resmi LSP MICE untuk memperoleh arahan awal mengenai proses sertifikasi kompetensi.",
+    href: `mailto:info@lspmice.org?subject=${encodeURIComponent("Pendaftaran Sertifikasi LSP MICE")}`,
+    label: "Kirim Email",
   },
   {
     title: "Lihat Skema Sertifikasi",

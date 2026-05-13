@@ -50,10 +50,10 @@ export default function Home() {
             >
               <ScrollMergePanels
                 className='relative z-10 mx-auto min-h-[100svh] max-w-[1320px] lg:grid-cols-[1.02fr_0.98fr]'
-                leftClassName="relative isolate px-4 pb-16 pt-20 sm:px-6 sm:pb-20 sm:pt-24 lg:pl-8 lg:pr-10 lg:pb-24 lg:pt-28 lg:before:absolute lg:before:inset-y-0 lg:before:right-0 lg:before:w-[100vw] lg:before:rounded-tr-[36px] lg:before:bg-[linear-gradient(180deg,#F8FAFC_0%,#E6F0F5_100%)] lg:before:content-['']"
+                leftClassName="relative isolate px-4 pb-16 pt-20 sm:px-6 sm:pb-20 sm:pt-24 lg:pl-8 lg:pr-10 lg:pb-24 lg:pt-28 lg:before:absolute lg:before:inset-y-0 lg:before:right-0 lg:before:w-[100vw] lg:before:rounded-tr-[36px] lg:before:bg-[linear-gradient(180deg,#DCE7F0_0%,#A9C2D5_100%)] lg:before:content-['']"
                 rightClassName="relative isolate px-4 pb-16 pt-20 text-white sm:px-6 sm:pb-20 sm:pt-24 lg:pl-10 lg:pr-8 lg:pb-24 lg:pt-28 lg:before:absolute lg:before:inset-y-0 lg:before:left-0 lg:before:w-[100vw] lg:before:rounded-tl-[36px] lg:before:bg-[linear-gradient(180deg,#00253A_0%,#003B5C_100%)] lg:before:content-['']"
                 left={
-                  <div className='relative z-10 mx-auto max-w-[38rem] rounded-[30px] bg-[linear-gradient(180deg,#F8FAFC_0%,#E6F0F5_100%)] px-7 py-8 shadow-[0_24px_60px_rgba(15,23,42,0.08)] sm:px-10 sm:py-11 lg:ml-0 lg:mr-auto lg:max-w-[42rem] lg:rounded-none lg:bg-transparent lg:px-0 lg:py-0 lg:shadow-none'>
+                  <div className='relative z-10 mx-auto max-w-[38rem] rounded-[30px] bg-[linear-gradient(180deg,#DCE7F0_0%,#A9C2D5_100%)] px-7 py-8 shadow-[0_24px_60px_rgba(15,23,42,0.08)] sm:px-10 sm:py-11 lg:ml-0 lg:mr-auto lg:max-w-[42rem] lg:rounded-none lg:bg-transparent lg:px-0 lg:py-0 lg:shadow-none'>
                     <div className='space-y-9'>
                       <SectionHeader
                         eyebrow={homePageContent.about.eyebrow}
@@ -113,7 +113,7 @@ export default function Home() {
                               }
                               className='flex gap-4 rounded-[24px] border border-white/10 bg-[rgba(255,255,255,0.08)] px-7 py-6 backdrop-blur-sm sm:px-8'
                             >
-                              <span className='mt-1 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--brand-accent)] text-xs font-bold text-white'>
+                              <span className='mt-1 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[linear-gradient(135deg,var(--brand-yellow)_0%,var(--brand-yellow-dark)_100%)] text-xs font-bold text-[var(--brand-primary-dark)] shadow-[0_4px_12px_rgba(245,180,0,0.35)]'>
                                 {index + 1}
                               </span>
                               <p className='text-sm leading-7 text-white/72'>
@@ -146,8 +146,8 @@ export default function Home() {
                   className='[&_p:first-child]:text-[var(--brand-accent-soft)] [&_h2]:text-white [&_p:last-child]:text-white/60 [&_p.text-balance]:text-blue-200'
                 />
 
-                <div className='mt-10 grid gap-5 lg:grid-cols-2 xl:grid-cols-3'>
-                  {featuredCertificationSchemes.map((scheme, index) => (
+                <div className='mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3'>
+                  {featuredCertificationSchemes.slice(0, 3).map((scheme, index) => (
                     <CertificationSchemeCard
                       key={scheme.slug}
                       scheme={scheme}
@@ -169,7 +169,7 @@ export default function Home() {
             <RevealSection
               id='berita'
               variant='mask'
-              className='bg-[linear-gradient(180deg,#f8fafc_0%,#e6f0f5_100%)] px-4 pb-14 pt-20 sm:px-6 sm:pb-20 sm:pt-24 lg:px-8 lg:pt-28'
+              className='bg-[linear-gradient(180deg,#dbe8f5_0%,#bcd2e7_100%)] px-4 pb-14 pt-20 sm:px-6 sm:pb-20 sm:pt-24 lg:px-8 lg:pt-28'
             >
               <div className='mx-auto max-w-[1320px]'>
                 <SectionHeader
@@ -190,7 +190,7 @@ export default function Home() {
             <RevealSection
               id='kontak'
               variant='left'
-              className='bg-[#f8fafc] px-4 pb-14 pt-20 sm:px-6 sm:pb-20 sm:pt-24 lg:px-8 lg:pt-28'
+              className='bg-[linear-gradient(180deg,#dbe8f5_0%,#c2d6ea_100%)] px-4 pb-14 pt-20 sm:px-6 sm:pb-20 sm:pt-24 lg:px-8 lg:pt-28'
             >
               <div className='relative overflow-hidden mx-auto max-w-[1320px] scroll-mt-28 rounded-[34px] border border-white/50 bg-[linear-gradient(135deg,#00253A_0%,#003B5C_58%,#005A8C_100%)] p-6 text-white shadow-[0_28px_100px_rgba(0,37,58,0.28)] sm:scroll-mt-32 sm:p-8 lg:p-10'>
                 <div className='pointer-events-none absolute inset-0 opacity-[0.08] bg-[linear-gradient(rgba(255,255,255,0.2)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.2)_1px,transparent_1px)] [background-size:24px_24px] animate-pan-diagonal'></div>
@@ -253,7 +253,7 @@ export default function Home() {
                           href = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(value)}`;
                         } else if (label === 'Office') {
                           href = `tel:${value.replace(/\D/g, '')}`;
-                        } else if (label === 'Contact Person') {
+                        } else if (label === 'Admin (WhatsApp)' || label === 'Contact Person') {
                           href = `https://wa.me/${value.replace(/\D/g, '').replace(/^0/, '62')}`;
                         } else if (label === 'Email') {
                           href = `mailto:${value}`;
@@ -285,7 +285,7 @@ export default function Home() {
                               )}>
                                 {label === 'Alamat' && <MapPin size={24} weight="duotone" />}
                                 {label === 'Email' && <EnvelopeSimple size={24} weight="duotone" />}
-                                {(label === 'Office' || label === 'Contact Person') && <Phone size={24} weight="duotone" />}
+                                {(label === 'Office' || label === 'Contact Person' || label === 'Admin (WhatsApp)') && <Phone size={24} weight="duotone" />}
                                 {label === 'Office Hours' && <Clock size={24} weight="duotone" />}
                               </div>
                               <div>

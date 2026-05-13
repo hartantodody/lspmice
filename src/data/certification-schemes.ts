@@ -10,9 +10,9 @@ export const certificationSchemes: CertificationScheme[] = [
     description:
       "Skema ini ditujukan untuk personel yang menangani proses registrasi peserta, verifikasi identitas, distribusi informasi awal, serta koordinasi alur kedatangan dalam kegiatan MICE.",
     targetParticipants: [
+      "Koordinator registrasi dalam suatu event",
       "Staf registrasi acara dan tim front desk event",
       "PIC penyambutan peserta, delegasi, atau tamu undangan",
-      "Tenaga kerja operasional yang ingin memvalidasi kompetensi layanan awal acara",
     ],
     competencyScope: [
       "Pengelolaan alur registrasi dan check-in peserta",
@@ -49,7 +49,7 @@ export const certificationSchemes: CertificationScheme[] = [
     description:
       "Skema ini mengukur kompetensi koordinasi delegasi, pelayanan tamu penting, komunikasi lintas pihak, dan tindak lanjut kebutuhan operasional selama kegiatan berlangsung.",
     targetParticipants: [
-      "Liaison officer untuk tamu VIP, pembicara, atau delegasi",
+      "Liaison officer untuk tamu VVIP, VIP, pembicara, atau delegasi",
       "Tim protokol dan pendamping kegiatan kelembagaan",
       "Profesional yang ingin memperkuat standar komunikasi dan layanan tamu",
     ],
@@ -88,9 +88,8 @@ export const certificationSchemes: CertificationScheme[] = [
     description:
       "Skema ini ditujukan untuk personel yang memastikan venue siap dipakai, aman, fungsional, dan mendukung kelancaran operasional kegiatan MICE dari awal hingga akhir acara.",
     targetParticipants: [
-      "Tim pengelola venue dan operasional gedung acara",
-      "Koordinator fasilitas dan tata ruang kegiatan",
-      "Personel teknis yang terlibat dalam kesiapan ruang dan layanan venue",
+      "Project Officer",
+      "Project Manager",
     ],
     competencyScope: [
       "Perencanaan kesiapan ruang acara dan fasilitas pendukung",
@@ -115,7 +114,7 @@ export const certificationSchemes: CertificationScheme[] = [
       "Wawancara teknis dan observasi pemahaman operasional venue",
       "Penyampaian hasil asesmen dan tindak lanjut",
     ],
-    duration: "1-2 hari",
+    duration: "1 hari",
     isFeatured: true,
   },
   {
@@ -125,7 +124,7 @@ export const certificationSchemes: CertificationScheme[] = [
     shortDescription:
       "Skema untuk kompetensi komunikasi pemasaran acara, penyusunan pesan promosi, pengelolaan kanal informasi, dan dukungan publikasi kegiatan.",
     description:
-      "Skema ini mengukur kemampuan perencanaan pesan promosi, koordinasi materi komunikasi, serta evaluasi aktivitas pemasaran untuk acara atau program MICE.",
+      "Skema ini mengukur kemampuan pemasaran acara, penyusunan proposal promosi atau sponsorship, dukungan kegiatan, dan lain-lain.",
     targetParticipants: [
       "Tim promosi, publikasi, dan komunikasi pemasaran event",
       "Koordinator kampanye kegiatan, expo, atau konferensi",
@@ -166,9 +165,10 @@ export const certificationSchemes: CertificationScheme[] = [
     description:
       "Skema ini difokuskan pada perencanaan kebutuhan logistik, distribusi perlengkapan, pengendalian material, dan sinkronisasi dukungan operasional selama pelaksanaan event.",
     targetParticipants: [
-      "Koordinator logistik dan perlengkapan event",
-      "Tim gudang, distribusi, dan operasional pendukung acara",
-      "Personel yang menangani mobilisasi material kegiatan",
+      "Project Officer",
+      "Project Manager",
+      "Coordinator Logistik",
+      "Staff Logistik",
     ],
     competencyScope: [
       "Perencanaan kebutuhan logistik berdasarkan rundown kegiatan",
@@ -232,7 +232,7 @@ export const certificationSchemes: CertificationScheme[] = [
       "Wawancara dan observasi kompetensi pembangunan stand",
       "Penetapan rekomendasi hasil asesmen",
     ],
-    duration: "1-2 hari",
+    duration: "1 hari",
     isFeatured: true,
   },
   {

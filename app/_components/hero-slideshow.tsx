@@ -16,6 +16,7 @@ import {
   startTransition,
   useEffect,
   useEffectEvent,
+  useRef,
   useState,
   type CSSProperties,
 } from "react";
@@ -55,8 +56,10 @@ const heroSocialItems = [
 ] as const;
 
 export function HeroSlideshow({ slides, contact, hero }: HeroSlideshowProps) {
+  const sectionRef = useRef<HTMLElement | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [reducedMotion, setReducedMotion] = useState(false);
+  const [inView, setInView] = useState(true);
   const [scrollProgress, setScrollProgress] = useState(0);
 
   const activeSlide = slides[activeIndex];
@@ -97,7 +100,7 @@ export function HeroSlideshow({ slides, contact, hero }: HeroSlideshowProps) {
   });
 
   useEffect(() => {
-    if (reducedMotion || slides.length < 2) {
+    if (reducedMotion || slides.length < 2 || !inView) {
       return;
     }
 
@@ -108,10 +111,10 @@ export function HeroSlideshow({ slides, contact, hero }: HeroSlideshowProps) {
     return () => {
       window.clearInterval(timer);
     };
-  }, [reducedMotion, slides.length]);
+  }, [reducedMotion, slides.length, inView]);
 
   useEffect(() => {
-    if (reducedMotion) {
+    if (reducedMotion || !inView) {
       return;
     }
 
@@ -139,7 +142,22 @@ export function HeroSlideshow({ slides, contact, hero }: HeroSlideshowProps) {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
     };
-  }, [reducedMotion]);
+  }, [reducedMotion, inView]);
+
+  useEffect(() => {
+    const node = sectionRef.current;
+    if (!node) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setInView(entry.isIntersecting);
+      },
+      { rootMargin: "200px 0px" },
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
 
   const mediaTrackStyle = reducedMotion
     ? undefined
@@ -157,6 +175,7 @@ export function HeroSlideshow({ slides, contact, hero }: HeroSlideshowProps) {
   return (
     <section
       id="hero"
+      ref={sectionRef}
       className="landing-snap-point relative isolate h-full min-h-[100svh] overflow-hidden bg-[var(--brand-primary-dark)]"
     >
       <div className="absolute inset-0">
@@ -204,7 +223,7 @@ export function HeroSlideshow({ slides, contact, hero }: HeroSlideshowProps) {
           >
             <div className="max-w-[44rem] space-y-6">
               <p
-                className="hero-copy-line max-w-fit text-[11px] font-semibold uppercase tracking-[0.34em] text-[var(--brand-accent)]"
+                className="hero-copy-line max-w-fit text-[11px] font-semibold uppercase tracking-[0.34em] text-[var(--brand-yellow)]"
                 style={{ "--delay": "80ms" } as CSSProperties}
               >
                 {activeSlide.eyebrow}

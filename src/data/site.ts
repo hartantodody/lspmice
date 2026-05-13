@@ -7,6 +7,7 @@ import type {
 
 export const siteConfig = {
   name: "LSP MICE",
+  legalName: "LSP MICE Pertemuan Perjalanan Insentif Konvensi dan Pameran",
   tagline:
     "Lembaga Sertifikasi Profesi yang mendukung peningkatan kompetensi tenaga kerja di bidang Meeting, Incentive, Convention, and Exhibition.",
   description:
@@ -111,7 +112,7 @@ export const homePageContent: HomePageContent = {
     eyebrow: "Apa Itu MICE?",
     title: "Apa itu MICE?",
     description:
-      "MICE adalah singkatan dari Meeting, Incentive, Convention, and Exhibition. MICE merupakan bagian dari industri pariwisata dan event yang mencakup kegiatan pertemuan, perjalanan insentif, konvensi, pameran, serta berbagai bentuk penyelenggaraan acara profesional.",
+      "Melalui skema sertifikasi berbasis kompetensi yang didukung oleh skema klaster dan okupasi, LSP MICE Pertemuan Perjalanan Insentif Konvensi dan Pameran memvalidasi keahlian SDM secara menyeluruh sesuai profil jabatan sekaligus memberikan fleksibilitas dalam penguasaan unit kompetensi spesifik di industri Meeting, Incentive, Convention, and Exhibition.",
   },
   aboutPanel: {
     eyebrow: "Landasan Kerja LSP MICE",
@@ -127,9 +128,9 @@ export const homePageContent: HomePageContent = {
   certification: {
     eyebrow: "Skema Sertifikasi",
     title: "Skema Sertifikasi Uji Kompetensi",
-    accent: "Berdasarkan Klaster",
+    accent: "Berbasis Okupasi & Klaster",
     description:
-      "Berikut adalah skema sertifikasi uji kompetensi berdasarkan klaster. Peserta dapat memilih skema yang sesuai dengan bidang pekerjaan, pengalaman, dan kompetensi yang ingin diujikan.",
+      "Kami menyediakan skema sertifikasi berbasis okupasi dan klaster agar peserta dapat menyesuaikan uji kompetensi dengan peran jabatan saat ini atau penguasaan fungsi teknis tertentu di bidang pekerjaan masing-masing.",
     ctaLabel: "Lihat Semua Skema Sertifikasi",
   },
   news: {
@@ -156,7 +157,7 @@ export const homePageContent: HomePageContent = {
     infoCards: [
       { label: "Alamat", value: "Gedung Permata Cikini Lt. 2, Jakarta Pusat" },
       { label: "Office", value: "(021) 3901216" },
-      { label: "Contact Person", value: "0856 8444133" },
+      { label: "Admin (WhatsApp)", value: "0856 8444133" },
       { label: "Office Hours", value: "Senin - Jumat, 9.00 - 17.00" },
     ],
   },

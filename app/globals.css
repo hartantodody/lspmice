@@ -13,13 +13,17 @@
   --brand-accent-dark: #960018;
   --brand-accent-soft: #f8e8eb;
 
-  --background: #f8fafc;
+  --brand-yellow: #f5b400;
+  --brand-yellow-dark: #c98c00;
+  --brand-yellow-soft: #fff4cc;
+
+  --background: #eef4f8;
   --surface: #ffffff;
-  --surface-muted: #f1f5f9;
+  --surface-muted: #dbe6ee;
 
   --text-primary: #0f172a;
-  --text-secondary: #475569;
-  --text-muted: #94a3b8;
+  --text-secondary: #1f2a3a;
+  --text-muted: #64748b;
 
   --border: #e2e8f0;
   --border-strong: rgba(255, 255, 255, 0.58);
@@ -146,14 +150,16 @@ img {
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(200, 16, 46, 0.05) 15%,
-    rgba(200, 16, 46, 0.5) 45%,
+    rgba(245, 180, 0, 0.05) 12%,
+    rgba(245, 180, 0, 0.5) 32%,
+    rgba(245, 180, 0, 0.9) 38%,
     rgba(200, 16, 46, 0.9) 50%,
-    rgba(200, 16, 46, 0.5) 55%,
-    rgba(200, 16, 46, 0.05) 85%,
+    rgba(245, 180, 0, 0.9) 62%,
+    rgba(245, 180, 0, 0.5) 68%,
+    rgba(245, 180, 0, 0.05) 88%,
     transparent 100%
   );
-  box-shadow: 0 1px 10px rgba(200, 16, 46, 0.3);
+  box-shadow: 0 1px 10px rgba(200, 80, 30, 0.3);
   opacity: 0.1;
   transform: scaleX(0);
   transform-origin: center;

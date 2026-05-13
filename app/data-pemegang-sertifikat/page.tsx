@@ -4,6 +4,7 @@ import { Breadcrumbs } from "@/app/_components/breadcrumbs";
 import { PageHeader } from "@/app/_components/page-header";
 import { SiteShell } from "@/app/_components/site-shell";
 import { CertificateDirectory } from "@/app/data-pemegang-sertifikat/certificate-directory";
+import { withDerivedStatus } from "@/app/_lib/certificate-status";
 import {
   certificateHolders,
   certificateSchemeOptions,
@@ -29,9 +30,9 @@ export default function DataPemegangSertifikatPage() {
               ]}
             />
             <PageHeader
-              eyebrow="Verifikasi Data"
-              title="Verifikasi Data Pemegang Sertifikat Kompetensi"
-              description="Halaman ini menyediakan fasilitas untuk memverifikasi status dan masa berlaku sertifikat kompetensi yang diterbitkan oleh LSP MICE. Masukkan nomor registrasi atau nama untuk mencari data pemegang sertifikat."
+              eyebrow="Data Pemegang Sertifikat"
+              title="Data Pemegang Sertifikat Kompetensi"
+              description="Halaman ini menampilkan data pemegang sertifikat kompetensi yang diterbitkan oleh LSP MICE beserta status dan masa berlakunya. Masukkan nomor registrasi atau nama untuk mencari data pemegang sertifikat."
               meta={[
                 { label: "Pembaruan Terakhir", value: "Real-time Update" },
                 { label: "Validasi", value: "Otoritas LSP MICE" },
@@ -49,7 +50,7 @@ export default function DataPemegangSertifikatPage() {
         <section className="px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-[1320px]">
             <CertificateDirectory
-              holders={certificateHolders}
+              holders={withDerivedStatus(certificateHolders)}
               years={certificateYears}
               schemes={certificateSchemeOptions}
             />
